@@ -16,6 +16,20 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/decorators/*": ["./src/common/decorators/*"],
+      "@/enums/*": ["./src/common/enums/*"],
+      "@/filters/*": ["./src/common/filters/*"],
+      "@/guards/*": ["./src/common/guards/*"],
+      "@/queues/*": ["./src/common/queues/*"],
+      "@/helpers/*": ["./src/common/helpers/*"],
+      "@/strategies/*": ["./src/common/strategies/*"],
+      "@/types/*": ["./src/common/types/*"],
+      "@/exceptions/*": ["./src/common/exceptions/*"],
+      "@/templates/*": ["./src/common/templates/*"],
+      "@/layouts/*": ["./src/common/layouts/*"],
+    }
   }
 }
