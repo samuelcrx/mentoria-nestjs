@@ -1,6 +1,5 @@
 export enum Roles {
-  diretor = 'diretor',
-  coordinator = 'coordinator',
+  admin = 'admin',
   teacher = 'teacher',
   none = 'none',
 }

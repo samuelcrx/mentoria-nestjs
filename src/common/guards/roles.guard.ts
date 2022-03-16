@@ -31,6 +31,9 @@ export class RolesGuard implements CanActivate {
         'requests where authentication is bypassed must not contain roles verification',
       );
     }
+    console.log(roles);
+    console.log(user);
+
     return roles.some((role) => user?.roles?.includes(role));
   }
 }

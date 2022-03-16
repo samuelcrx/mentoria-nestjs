@@ -7,6 +7,51 @@ type AuthJWT {
   token: String!
 }
 
+type Class {
+  """class id"""
+  _id: String!
+
+  """class color"""
+  color: String!
+
+  """class  language"""
+  language: String!
+
+  """class name"""
+  name: String!
+
+  """class subject"""
+  subject: Subject!
+}
+
+input CreateClassInput {
+  """class color"""
+  color: String!
+
+  """class language"""
+  language: String!
+
+  """class name"""
+  name: String!
+
+  """class subject"""
+  subject: String!
+}
+
+input CreateSubjectInput {
+  """subject's description"""
+  description: String!
+
+  """subject's name"""
+  name: String!
+
+  """subject's teacher image"""
+  teacher_image: String!
+
+  """subject's user id"""
+  user: String!
+}
+
 input CreateUserInput {
   """user's email"""
   email: String!
@@ -25,6 +70,8 @@ input CreateUserInput {
 }
 
 type Mutation {
+  createClass(createClassInput: CreateClassInput!): Class!
+  createSubject(createSubjectInput: CreateSubjectInput!): Subject!
   createUser(createUserInput: CreateUserInput!): User!
   login(
     """user's login email"""
@@ -34,11 +81,19 @@ type Mutation {
     password: String!
   ): AuthJWT!
   registerUser(registerUserInput: RegisterUserInput!): User!
+  removeClass(id: String!): Class!
+  removeSubject(id: String!): Subject!
   removeUser(id: String!): User!
+  updateClass(updateClassInput: UpdateClassInput!): Class!
+  updateSubject(updateSubjectInput: UpdateSubjectInput!): Subject!
   updateUser(updateUserInput: UpdateUserInput!): User!
 }
 
 type Query {
+  class(id: String!): Class!
+  classes: [Class!]!
+  subject(id: String!): Subject!
+  subjects: [Subject!]!
   user(id: String!): User!
   users: [User!]!
   whoAmI: User!
@@ -56,6 +111,53 @@ input RegisterUserInput {
 
   """user's password"""
   password: String!
+}
+
+type Subject {
+  """Subject's id"""
+  _id: String!
+
+  """Subject's description"""
+  description: String!
+
+  """Subject's name"""
+  name: String!
+
+  """Subject's teacher image url"""
+  teacher_image: String!
+
+  """subject's user"""
+  user: User!
+}
+
+input UpdateClassInput {
+  """class color"""
+  color: String
+  id: String!
+
+  """class language"""
+  language: String
+
+  """class name"""
+  name: String
+
+  """class subject"""
+  subject: String
+}
+
+input UpdateSubjectInput {
+  """subject's description"""
+  description: String
+  id: Int!
+
+  """subject's name"""
+  name: String
+
+  """subject's teacher image"""
+  teacher_image: String
+
+  """subject's user id"""
+  user: String
 }
 
 input UpdateUserInput {

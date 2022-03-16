@@ -9,6 +9,8 @@ import { AuthModule } from './auth/auth.module';
 import { GraphQLError } from 'graphql';
 import { GqlJwtAuthGuard } from '@/guards/gql-jwt-auth.guard';
 import { RolesGuard } from '@/guards/roles.guard';
+import { SubjectsModule } from './subjects/subjects.module';
+import { ClassesModule } from './classes/classes.module';
 
 @Module({
   imports: [
@@ -26,6 +28,8 @@ import { RolesGuard } from '@/guards/roles.guard';
     }),
     UsersModule,
     AuthModule,
+    SubjectsModule,
+    ClassesModule,
   ],
   providers: [
     {

@@ -20,8 +20,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/decorators/*": ["./src/common/decorators/*"],
+      "@/subjects/*": ["./src/subjects/*"],
+      "@/users/*": ["./src/users/*"],
       "@/enums/*": ["./src/common/enums/*"],
-      "@/filters/*": ["./src/common/filters/*"],
       "@/guards/*": ["./src/common/guards/*"],
       "@/queues/*": ["./src/common/queues/*"],
       "@/helpers/*": ["./src/common/helpers/*"],

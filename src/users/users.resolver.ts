@@ -7,7 +7,7 @@ import { SkipAuth } from '@/decorators/skip-auth.decorator';
 import { User } from './schemas/user.schema';
 import { RegisterUserInput } from './dto/register-user.input';
 
-@Roles(Role.diretor)
+@Roles(Role.teacher)
 @Resolver(() => User)
 export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
@@ -38,7 +38,7 @@ export class UsersResolver {
     return this.usersService.findOne(id);
   }
 
-  @Roles(Role.diretor, Role.teacher)
+  @Roles(Role.admin, Role.teacher)
   @Mutation(() => User)
   async updateUser(@Args('updateUserInput') updateUserInput: UpdateUserInput) {
     return this.usersService.update(updateUserInput.id, updateUserInput);
