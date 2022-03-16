@@ -1,5 +1,6 @@
 import { User } from '@/users/schemas/user.schema';
 import { UsersService } from '@/users/users.service';
+import { JwtService } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 import { ConfigModule } from '@nestjs/config';

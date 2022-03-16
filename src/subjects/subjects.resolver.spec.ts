@@ -1,16 +1,34 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { SubjectsResolver } from './subjects.resolver';
+import { SubjectResolver } from './subjects.resolver';
 import { SubjectsService } from './subjects.service';
+import { UsersService } from '@/users/users.service';
+import { User } from '@/users/schemas/user.schema';
+import { getModelToken } from '@nestjs/mongoose';
+import { Subject } from './schemas/subjects.schema';
 
 describe('SubjectsResolver', () => {
-  let resolver: SubjectsResolver;
+  let resolver: SubjectResolver;
+  const rubberDuckModel = new Subject();
+  const capeModel = new User();
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [SubjectsResolver, SubjectsService],
+      providers: [
+        SubjectResolver,
+        SubjectsService,
+        UsersService,
+        {
+          provide: getModelToken(User.name),
+          useValue: capeModel,
+        },
+        {
+          provide: getModelToken(Subject.name),
+          useValue: rubberDuckModel,
+        },
+      ],
     }).compile();
 
-    resolver = module.get<SubjectsResolver>(SubjectsResolver);
+    resolver = module.get<SubjectResolver>(SubjectResolver);
   });
 
   it('should be defined', () => {
